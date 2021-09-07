@@ -1,0 +1,10 @@
+node_modules
+artifacts
+bin
+
+node_modules
+
+#Hardhat files
+cache
+artifacts
+.openzeppelin
