@@ -1,4 +1,4 @@
-// We require the Hardhat Runtime Environment explicitly here. This is optional 
+// We require the Hardhat Runtime Environment explicitly here. This is optional
 // but useful for running the script in a standalone fashion through `node <script>`.
 //
 // When running the script with `hardhat run <script>` you'll find the Hardhat
@@ -9,7 +9,7 @@ async function main() {
   // Hardhat always runs the compile task when running scripts with its command
   // line interface.
   //
-  // If this script is run directly using `node` you may want to call compile 
+  // If this script is run directly using `node` you may want to call compile
   // manually to make sure everything is compiled
   // await hre.run('compile');
 
@@ -18,12 +18,12 @@ async function main() {
   console.log("Account balance:", (await deployer.getBalance()).toString());
 
   // We get the contract to deploy
-  const contract = await ethers.getContractFactory("SFX20");
-  const SFX20 = await upgrades.deployProxy(contract, ["deposit-key", "deposit-address", "spend-key", "spend-address", "cold-key", "cold-address"], {initializer: 'initialize'})
+  const contract = await ethers.getContractFactory("WSFX");
+  const WSFX = await upgrades.deployProxy(contract, ["deposit-key", "deposit-address", "spend-key", "spend-address", "cold-key", "cold-address"], {initializer: 'initialize'})
 
-  await SFX20.deployed();
+  await WSFX.deployed();
 
-  console.log("SFX20 deployed to:", SFX20.address);
+  console.log("WSFX deployed to:", WSFX.address);
 }
 
 // We recommend this pattern to be able to use async/await everywhere
